@@ -69,7 +69,7 @@ public class BancoDePerguntas {
                     Dominio.REGULARIDADE_TIMING, VARIACAO_HORARIO)
     );
 
-    public List<Pergunta> listarPerguntas() {
+    public List<Pergunta> listar() {
         return perguntas;
     }
 }
