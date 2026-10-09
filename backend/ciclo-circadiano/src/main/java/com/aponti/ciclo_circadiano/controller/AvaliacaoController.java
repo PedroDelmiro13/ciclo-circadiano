@@ -1,7 +1,7 @@
 package com.aponti.ciclo_circadiano.controller;
 
 import com.aponti.ciclo_circadiano.dto.PerguntaResponse;
-import com.aponti.ciclo_circadiano.service.PerguntaService;
+import com.aponti.ciclo_circadiano.service.AvaliacaoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,14 +10,14 @@ import java.util.List;
 @RestController
 public class AvaliacaoController {
 
-    private final PerguntaService perguntaService;
+    private final AvaliacaoService avaliacaoService;
 
-    public AvaliacaoController(PerguntaService perguntaService) {
-        this.perguntaService = perguntaService;
+    public AvaliacaoController(AvaliacaoService avaliacaoService) {
+        this.avaliacaoService = avaliacaoService;
     }
 
     @GetMapping("/perguntas")
     public List<PerguntaResponse> listarPerguntas() {
-        return perguntaService.listarPerguntas();
+        return avaliacaoService.listarPerguntas();
     }
 }

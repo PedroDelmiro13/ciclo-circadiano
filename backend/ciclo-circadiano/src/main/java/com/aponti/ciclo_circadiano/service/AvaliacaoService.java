@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PerguntaService {
+public class AvaliacaoService {
 
     private final BancoDePerguntas banco;
 
-    public PerguntaService(BancoDePerguntas banco){
+    public AvaliacaoService(BancoDePerguntas banco){
         this.banco = banco;
     }
 
