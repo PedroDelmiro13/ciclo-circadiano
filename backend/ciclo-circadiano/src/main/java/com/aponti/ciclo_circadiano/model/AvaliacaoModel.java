@@ -1,6 +1,7 @@
 package com.aponti.ciclo_circadiano.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -13,7 +14,7 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Avaliacao {
+public class AvaliacaoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -22,7 +23,7 @@ public class Avaliacao {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Usuario_Id", nullable = false, updatable = false)
-    private Usuario usuario;
+    private UserModel usuario;
 
     @CreationTimestamp
     @Column(name = "Data_avaliacao", nullable = false, updatable = false)
