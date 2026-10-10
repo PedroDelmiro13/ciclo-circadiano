@@ -1,11 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Início</title>
 </head>
 <body>
-    <h1>Tela Principal!</h1>
+
+    <div class="container">
+        <main class="home glass">
+
+            <div class="home-topo">
+                <div>
+                    <h1>Ciclo Circadiano</h1>
+                    <p class="home-subtitulo">
+                        Entenda melhor seus hábitos de sono e rotina.
+                    </p>
+                </div>
+
+                <button id="btn-sair" class="btn-sair">
+                    Sair
+                </button>
+            </div>
+
+            <section class="home-conteudo">
+                <h2>Como está o seu ritmo diário?</h2>
+
+                <p>
+                    Responda uma avaliação rápida sobre regularidade do sono,
+                    qualidade do descanso, exposição à luz e uso de estimulantes.
+                </p>
+
+                <p class="home-info">
+                    São 10 perguntas e, ao final, você receberá uma classificação
+                    e orientações baseadas nas suas respostas.
+                </p>
+
+                <button id="btn-avaliacao" class="btn">
+                    Iniciar avaliação
+                </button>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="home.js"></script>
 </body>
 </html>
