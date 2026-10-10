@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <body>
     <div class="container">
-        <form action="" id="form-login" class="form glass" method="post">
-            <h1>Login</h1>
+        <form action="" id="form-register" class="form glass" method="post">
+            <h1>Cadastro</h1>
             <p id="mensagem"></p>
-
+    
                 <div class="inputs">
+                    <div class="row">
+                        <label for="nomeForm">Nome</label>
+                        <input type="text" id="nomeForm" name="nomeForm" placeholder="Insira o nome" required>
+                        <small class="erro-texto"></small>
+                    </div>
+    
                     <div class="row">
                         <label for="emailForm">E-mail</label>
                         <input type="text" id="emailForm" name="emailForm" placeholder="Insira o e-mail" required>
@@ -25,11 +31,12 @@
                         <small class="erro-texto"></small>
                     </div>
                 </div>
-
-                <button type="submit" class="btn">Entrar</button>
-                <h5 class="log-txt">Não possui uma conta? <a href="register.html">Cadastre-se</a></h5>
+    
+                <button type="submit" class="btn">Cadastrar</button>
+                <h5 class="log-txt">Possui uma conta? <a href="index.html">Faça login</a></h5>
         </form>
     </div>
 
-    <script src="login.js"></script>
+    <script src="Register.js"></script>
 </body>
+</html>
