@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Usuarios")
+@Table(name = "usuarios")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +19,8 @@ public class UserModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "Id", updatable = false)
+    @Column(name = "Id", updatable = false, length = 36, columnDefinition = "CHAR(36)")
+    @JdbcTypeCode(SqlTypes.CHAR)
     private UUID id;
 
     @Column(name = "Nome", nullable = false, length = 100)
@@ -30,7 +32,6 @@ public class UserModel {
     @Column(name = "Senha", nullable = false)
     private String senha; 
 
-    @CreationTimestamp
-    @Column(name = "Data_de_Criacao", nullable = false, updatable = false)
+    @Column(name = "Data_de_criacao", insertable = false, updatable = false)
     private LocalDateTime dataDeCriacao;
 }

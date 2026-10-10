@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Avaliacoes")
+@Table(name = "avaliacoes")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,19 +19,19 @@ public class AvaliacaoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "Id", updatable = false)
+    @Column(name = "Id", updatable = false, length = 36, columnDefinition = "CHAR(36)")
+    @JdbcTypeCode(SqlTypes.CHAR)
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Usuario_Id", nullable = false, updatable = false)
     private UserModel usuario;
 
-    @CreationTimestamp
-    @Column(name = "Data_avaliacao", nullable = false, updatable = false)
+    @Column(name = "Data_avaliacao", insertable = false, updatable = false)
     private LocalDateTime dataAvaliacao;
 
-    @Column(name = "Pontuacao_total", nullable = false)
-    private int pontuacaoTotal;
+    @Column(name = "Pontuacao_Total", insertable = false, updatable = false)
+    private Integer pontuacaoTotal;
 
     @Column(name = "Nota_regularidade", nullable = false)
     private int notaRegularidade;
