@@ -30,8 +30,8 @@ public class AvaliacaoModel {
     @Column(name = "Data_avaliacao", insertable = false, updatable = false)
     private LocalDateTime dataAvaliacao;
 
-    @Column(name = "Pontuacao_Total", insertable = false, updatable = false)
-    private Integer pontuacaoTotal;
+    @Column(name = "Pontuacao_total", nullable = false, insertable = false, updatable = false)
+    private int pontuacaoTotal;
 
     @Column(name = "Nota_regularidade", nullable = false)
     private int notaRegularidade;
