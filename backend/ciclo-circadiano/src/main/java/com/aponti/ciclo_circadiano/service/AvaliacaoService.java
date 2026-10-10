@@ -100,7 +100,7 @@ public class AvaliacaoService {
                 notas.get(Dominio.SAUDE_DO_SONO),
                 notas.get(Dominio.LUZ_E_ESTIMULANTES),
                 classificacao);
-        avaliacao = avaliacaoRepository.save(avaliacao);
+        avaliacao = avaliacaoRepository.saveAndFlush(avaliacao);
 
         return montarResposta(avaliacao, notas, maximos, itens);
     }

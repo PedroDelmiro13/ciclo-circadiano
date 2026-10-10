@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -27,7 +28,8 @@ public class AvaliacaoModel {
     @JoinColumn(name = "Usuario_Id", nullable = false, updatable = false)
     private UserModel usuario;
 
-    @Column(name = "Data_avaliacao", insertable = false, updatable = false)
+    @CreationTimestamp
+    @Column(name = "Data_avaliacao", nullable = false, updatable = false)
     private LocalDateTime dataAvaliacao;
 
     @Column(name = "Pontuacao_total", nullable = false, insertable = false, updatable = false)
