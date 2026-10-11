@@ -67,6 +67,12 @@ public class AvaliacaoService {
                 .map(this::paraResponse);
     }
 
+    public List<UltimaAvaliacaoResponse> listarAvaliacoes(String email) {
+        return avaliacaoRepository.findByUsuario_EmailOrderByDataAvaliacaoDesc(email).stream()
+                .map(this::paraResponse)
+                .toList();
+    }
+
     private UltimaAvaliacaoResponse paraResponse(AvaliacaoModel avaliacao) {
         return new UltimaAvaliacaoResponse(
                 avaliacao.getId(),
