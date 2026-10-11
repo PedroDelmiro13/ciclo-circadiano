@@ -64,17 +64,21 @@ public class AvaliacaoService {
 
     public Optional<UltimaAvaliacaoResponse> buscarUltimaAvaliacao(String email) {
         return avaliacaoRepository.findFirstByUsuario_EmailOrderByDataAvaliacaoDesc(email)
-                .map(avaliacao -> new UltimaAvaliacaoResponse(
-                        avaliacao.getId(),
-                        avaliacao.getDataAvaliacao(),
-                        avaliacao.getPontuacaoTotal(),
-                        20,
-                        avaliacao.getClassificacao(),
-                        List.of(
-                                new DominioResponse("Regularidade e timing", avaliacao.getNotaRegularidade(), 6),
-                                new DominioResponse("Saúde do sono", avaliacao.getNotaSaudeSono(), 8),
-                                new DominioResponse("Luz e estimulantes", avaliacao.getNotaLuzEstimulante(), 6)
-                        )));
+                .map(this::paraResponse);
+    }
+
+    private UltimaAvaliacaoResponse paraResponse(AvaliacaoModel avaliacao) {
+        return new UltimaAvaliacaoResponse(
+                avaliacao.getId(),
+                avaliacao.getDataAvaliacao(),
+                avaliacao.getPontuacaoTotal(),
+                20,
+                avaliacao.getClassificacao(),
+                List.of(
+                        new DominioResponse("Regularidade e timing", avaliacao.getNotaRegularidade(), 6),
+                        new DominioResponse("Saúde do sono", avaliacao.getNotaSaudeSono(), 8),
+                        new DominioResponse("Luz e estimulantes", avaliacao.getNotaLuzEstimulante(), 6)
+                ));
     }
 
     @Transactional
@@ -202,6 +206,8 @@ public class AvaliacaoService {
 
     private ResponseStatusException requisicaoInvalida(String mensagem) {
         return new ResponseStatusException(HttpStatus.BAD_REQUEST, mensagem);
+
+
     }
 
     private record ItemCorrigido(Pergunta pergunta, Opcao escolhida) {}
