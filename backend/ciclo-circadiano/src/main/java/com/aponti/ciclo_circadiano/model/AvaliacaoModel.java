@@ -32,7 +32,7 @@ public class AvaliacaoModel {
     @Column(name = "Data_avaliacao", nullable = false, updatable = false)
     private LocalDateTime dataAvaliacao;
 
-    @Column(name = "Pontuacao_total", nullable = false, insertable = false, updatable = false)
+    @Column(name = "Pontuacao_total", nullable = false)
     private int pontuacaoTotal;
 
     @Column(name = "Nota_regularidade", nullable = false)
