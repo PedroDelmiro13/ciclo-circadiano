@@ -38,6 +38,11 @@ public class AvaliacaoController {
                 .orElseGet(() -> ResponseEntity.noContent().build());
     }
 
+    @GetMapping("/avaliacoes")
+    public List<UltimaAvaliacaoResponse> listarAvaliacoes(Authentication authentication) {
+        return avaliacaoService.listarAvaliacoes(authentication.getName());
+    }
+
     @PostMapping("/avaliacoes")
     @ResponseStatus(HttpStatus.CREATED)
     public AvaliacaoResponse criarAvaliacao(@Valid @RequestBody AvaliacaoRequest request,
