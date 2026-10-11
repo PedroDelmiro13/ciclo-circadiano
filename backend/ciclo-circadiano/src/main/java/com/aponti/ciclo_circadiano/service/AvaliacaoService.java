@@ -7,6 +7,7 @@ import com.aponti.ciclo_circadiano.dto.FeedbackResponse;
 import com.aponti.ciclo_circadiano.dto.OpcaoResponse;
 import com.aponti.ciclo_circadiano.dto.PerguntaResponse;
 import com.aponti.ciclo_circadiano.dto.RespostaRequest;
+import com.aponti.ciclo_circadiano.dto.UltimaAvaliacaoResponse;
 import com.aponti.ciclo_circadiano.model.AvaliacaoModel;
 import com.aponti.ciclo_circadiano.model.UserModel;
 import com.aponti.ciclo_circadiano.questionario.BancoDeFeedback;
@@ -27,6 +28,7 @@ import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -58,6 +60,21 @@ public class AvaliacaoService {
                                 .map(o -> new OpcaoResponse(o.id(), o.texto()))
                                 .toList()))
                 .toList();
+    }
+
+    public Optional<UltimaAvaliacaoResponse> buscarUltimaAvaliacao(String email) {
+        return avaliacaoRepository.findFirstByUsuario_EmailOrderByDataAvaliacaoDesc(email)
+                .map(avaliacao -> new UltimaAvaliacaoResponse(
+                        avaliacao.getId(),
+                        avaliacao.getDataAvaliacao(),
+                        avaliacao.getPontuacaoTotal(),
+                        20,
+                        avaliacao.getClassificacao(),
+                        List.of(
+                                new DominioResponse("Regularidade e timing", avaliacao.getNotaRegularidade(), 6),
+                                new DominioResponse("Saúde do sono", avaliacao.getNotaSaudeSono(), 8),
+                                new DominioResponse("Luz e estimulantes", avaliacao.getNotaLuzEstimulante(), 6)
+                        )));
     }
 
     @Transactional

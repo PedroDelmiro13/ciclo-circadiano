@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/home.css">
     <title>Início</title>
 </head>
 <body>
@@ -11,36 +11,70 @@
     <div class="container">
         <main class="home glass">
 
-            <div class="home-topo">
-                <div>
-                    <h1>Ciclo Circadiano</h1>
-                    <p class="home-subtitulo">
-                        Entenda melhor seus hábitos de sono e rotina.
-                    </p>
+            <nav class="profile-breadcrumb" aria-label="Navegação estrutural">
+                <a href="home.html">Início</a>
+                <span aria-hidden="true">/</span>
+                <span aria-current="page">Meu Perfil</span>
+            </nav>
+
+            <header class="profile-overview">
+                <div class="profile-identity">
+                    <h1 id="profile-name">Meu Perfil</h1>
+                    <p id="profile-email" class="profile-email"></p>
+                </div>
+                <button id="btn-sair" class="btn-sair" type="button">Sair</button>
+            </header>
+
+            <section class="home-card" aria-label="Avaliação de sono">
+                <div class="home-topo">
+                    <div>
+                        <h1>Ciclo Circadiano</h1>
+                        <p class="home-subtitulo">
+                            Entenda melhor seus hábitos de sono e rotina.
+                        </p>
+                    </div>
                 </div>
 
-                <button id="btn-sair" class="btn-sair">
-                    Sair
-                </button>
-            </div>
+                <div class="home-conteudo">
+                    <h2>Como está o seu ritmo diário?</h2>
 
-            <section class="home-conteudo">
-                <h2>Como está o seu ritmo diário?</h2>
+                    <p>
+                        Responda uma avaliação rápida sobre regularidade do sono,
+                        qualidade do descanso, exposição à luz e uso de estimulantes.
+                    </p>
 
-                <p>
-                    Responda uma avaliação rápida sobre regularidade do sono,
-                    qualidade do descanso, exposição à luz e uso de estimulantes.
-                </p>
+                    <p class="home-info">
+                        São 10 perguntas e, ao final, você receberá uma classificação
+                        e orientações baseadas nas suas respostas.
+                    </p>
 
-                <p class="home-info">
-                    São 10 perguntas e, ao final, você receberá uma classificação
-                    e orientações baseadas nas suas respostas.
-                </p>
-
-                <button id="btn-avaliacao" class="btn">
-                    Iniciar avaliação
-                </button>
+                    <button id="btn-avaliacao" class="btn" type="button">
+                        Iniciar avaliação
+                    </button>
+                </div>
             </section>
+
+            <details id="latest-card" class="latest-card">
+                <summary class="latest-heading">
+                    <div>
+                        <p class="latest-eyebrow">ACOMPANHAMENTO</p>
+                        <h2 id="latest-title">Última avaliação</h2>
+                    </div>
+                </summary>
+                <div class="latest-body">
+                    <p id="latest-status" class="latest-status" role="status" aria-live="polite">Abra para consultar sua avaliação.</p>
+                    <div id="latest-content" hidden>
+                        <div class="latest-summary">
+                            <p class="latest-score"><span id="latest-total">0</span><span id="latest-maximum"> / 20</span></p>
+                            <div class="latest-meta">
+                                <span id="latest-classification" class="latest-classification"></span>
+                                <time id="latest-date"></time>
+                            </div>
+                        </div>
+                        <div id="latest-domains" class="latest-domains"></div>
+                    </div>
+                </div>
+            </details>
 
         </main>
     </div>

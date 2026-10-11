@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#102d38">
+	<meta name="description" content="Uma autoavaliação sobre regularidade, qualidade do sono, luz e estimulantes.">
+	<title>Ritmo 24h | Hábitos de sono</title>
+	<link rel="stylesheet" href="styles/survey.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<header class="topbar">
+		<a class="brand" href="survey.html" aria-label="Ritmo 24h, início">
+			<span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+			<span>Ritmo <strong>24h</strong></span>
+		</a>
+		<span class="topbar-label">AUTOAVALIAÇÃO</span>
+	</header>
+
+	<main class="page-shell">
+		<section id="questionnaire" aria-labelledby="page-title">
+			<div class="intro">
+				<p class="eyebrow">SEU SONO, EM PERSPECTIVA</p>
+				<h1 id="page-title">Entenda seus hábitos<br class="desktop-break"> de sono</h1>
+				<p class="intro-copy">Uma leitura prática da sua rotina para reconhecer padrões e descobrir onde pequenos ajustes podem fazer diferença.</p>
+				<p class="period-note"><span class="note-dot" aria-hidden="true"></span>Responda considerando, preferencialmente, os últimos 14 dias.</p>
+			</div>
+			<section class="question-card" aria-label="Questionário">
+				<div class="progress-header">
+					<span id="question-count" class="question-count">Pergunta 1 de 10</span>
+					<span id="progress-percent" class="progress-percent">10%</span>
+				</div>
+				<div id="progress-track" class="progress-track" role="progressbar" aria-label="Progresso do questionário" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1">
+					<span id="progress-fill" class="progress-fill"></span>
+				</div>
+				<form id="question-form" novalidate>
+					<div id="question-content" class="question-content"></div>
+					<p id="validation-message" class="validation-message" role="alert" aria-live="polite"></p>
+					<div class="question-nav">
+						<button id="previous-button" class="button button-back" type="button" disabled><span aria-hidden="true">←</span> Anterior</button>
+						<button id="next-button" class="button button-primary" type="button">Próxima <span aria-hidden="true">→</span></button>
+						<button id="finish-button" class="button button-primary" type="button" hidden>Finalizar avaliação <span aria-hidden="true">→</span></button>
+					</div>
+				</form>
+			</section>
+			<p class="privacy-note"><span aria-hidden="true">↗</span> Esta avaliação acontece somente neste dispositivo. Suas respostas não são enviadas nem salvas.</p>
+		</section>
+
+		<section id="results" class="results-section" aria-labelledby="result-title" hidden>
+			<div class="result-heading">
+				<p class="eyebrow">SUA AVALIAÇÃO</p>
+				<h1 id="result-title" tabindex="-1">Um retrato do seu ritmo</h1>
+				<p class="intro-copy">Use este resultado como ponto de partida para observar seus hábitos, sem substituir uma avaliação profissional.</p>
+			</div>
+			<article class="score-card" aria-labelledby="overall-heading">
+				<div class="score-overview">
+					<div><p class="card-kicker">PONTUAÇÃO GERAL</p><h2 id="overall-heading"><span id="total-score">0</span><span class="score-max"> / 20</span></h2></div>
+					<span id="classification" class="classification">Médio</span>
+				</div>
+				<p id="general-feedback" class="general-feedback"></p>
+			</article>
+			<section class="results-block" aria-labelledby="domains-title">
+				<div class="section-heading"><p class="eyebrow">PONTUAÇÃO POR DOMÍNIO</p><h2 id="domains-title">O que compõe seu resultado</h2></div>
+				<div id="domain-results" class="domain-list"></div>
+				<p id="lowest-domains" class="lowest-domains"></p>
+			</section>
+			<section class="results-block attention-block" aria-labelledby="attention-title">
+				<div class="section-heading">
+					<p class="eyebrow">PRÓXIMOS PASSOS</p>
+					<h2 id="attention-title">Hábitos para observar</h2>
+					<p class="section-copy">Respostas abaixo da pontuação máxima podem indicar temas para acompanhar com curiosidade e sem julgamentos.</p>
+				</div>
+				<div id="answer-feedback" class="answer-feedback-list"></div>
+			</section>
+			<div class="results-actions">
+				<button id="restart-button" class="button button-primary" type="button">Refazer avaliação <span aria-hidden="true">↻</span></button>
+				<a class="button button-back" href="home.html"><span aria-hidden="true">←</span> Voltar para o início</a>
+			</div>
+		</section>
+	</main>
+	<footer class="site-footer"><span>Ritmo 24h</span><span>Hábitos, rotina e bem-estar</span></footer>
+</body>
+</html>
