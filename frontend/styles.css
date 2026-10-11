@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+    color: #E8EAE6;
+    background: #050306;
+}
+
+html, body{
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.059), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.form {
+    width: min(100%, 650px);
+    min-height: 450px;
+    height: auto;
+    padding: 32px 24px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border: #E8EAE6 solid 1px;
+}
+
+.inputs{
+    display: flex;
+    width: min(100%, 300px);
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 1rem;
+}
+
+.row{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.row input{
+    border-radius: 4px;
+    border: 1px solid black;
+    font-size: 14px;
+    height: 36px;
+    width: 100%;
+    padding: 10px;
+    transition: .3s;
+}
+
+.row input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.row label{
+    color: #D9D9D9;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.row input{
+    border-radius: 4px;
+    border: 1px solid black;
+    font-size: 14px;
+    height: 30px;
+    padding: 10px;
+}
+
+.btn{
+    color: #3751e0;
+    background-color: #D9D9D9;
+    border: 2px solid #bdbbbb;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 600;
+    width: min(100%, 300px);
+    cursor: pointer;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.log-txt{
+    font-size: 14px;
+    text-align: center;
+}
+
+.log-txt a{
+    color: #3751e0;
+    text-decoration: none;
+}
+
+/* Tela principal pós-login */
+
+.home {
+    width: min(100%, 750px);
+    min-height: 0;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.home-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.home-topo h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.home-subtitulo {
+    color: #bdbbbb;
+    font-size: 15px;
+}
+
+.home-conteudo {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    max-width: 580px;
+}
+
+.home-conteudo h2 {
+    font-size: 28px;
+}
+
+.home-conteudo p {
+    color: #D9D9D9;
+    line-height: 1.6;
+}
+
+.home-info {
+    font-size: 14px;
+    color: #bdbbbb !important;
+}
+
+.btn-sair {
+    color: #E8EAE6;
+    background: transparent;
+    border: 1px solid #E8EAE6;
+    border-radius: 4px;
+    padding: 8px 18px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-sair:hover {
+    background-color: #E8EAE6;
+    color: #050306;
+}
+
+@media (max-width: 700px) {
+    .container { padding: 20px; }
+    .form { min-height: 0; padding: 32px 24px; }
+    .home { gap: 34px; padding: 28px 24px; }
+    .home-topo { gap: 16px; }
+    .home-topo h1 { font-size: 28px; }
+    .home-conteudo { gap: 15px; }
+    .home-conteudo h2 { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 14px; }
+    .form { padding: 28px 20px; }
+    .inputs { gap: 18px; margin-bottom: 12px; }
+    .row label { font-size: 17px; }
+    .btn { min-height: 44px; font-size: 17px; }
+    .home { gap: 28px; padding: 24px 20px; }
+    .home-topo { flex-direction: column; }
+    .home-topo h1 { font-size: 25px; }
+    .home-conteudo h2 { font-size: 22px; }
+    .home-conteudo p { font-size: 13px; }
+    .btn-sair { min-height: 42px; }
+}
+
+@media (max-width: 340px) {
+    .container { padding: 10px; }
+    .form { padding: 24px 16px; }
+    .home { padding: 20px 16px; }
+    .log-txt { line-height: 1.5; }
+}
+
+@media (max-height: 560px) {
+    .container { align-items: flex-start; }
+    .form { min-height: 0; }
+}
