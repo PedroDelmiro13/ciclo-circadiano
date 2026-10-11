@@ -3,9 +3,11 @@ package com.aponti.ciclo_circadiano.controller;
 import com.aponti.ciclo_circadiano.dto.AvaliacaoRequest;
 import com.aponti.ciclo_circadiano.dto.AvaliacaoResponse;
 import com.aponti.ciclo_circadiano.dto.PerguntaResponse;
+import com.aponti.ciclo_circadiano.dto.UltimaAvaliacaoResponse;
 import com.aponti.ciclo_circadiano.service.AvaliacaoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +29,13 @@ public class AvaliacaoController {
     @GetMapping("/perguntas")
     public List<PerguntaResponse> listarPerguntas() {
         return avaliacaoService.listarPerguntas();
+    }
+
+    @GetMapping("/avaliacoes/ultima")
+    public ResponseEntity<UltimaAvaliacaoResponse> obterUltimaAvaliacao(Authentication authentication) {
+        return avaliacaoService.buscarUltimaAvaliacao(authentication.getName())
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.noContent().build());
     }
 
     @PostMapping("/avaliacoes")

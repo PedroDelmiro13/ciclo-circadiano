@@ -11,7 +11,12 @@ body{
 }
 
 html, body{
-    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .glass {
@@ -29,12 +34,14 @@ html, body{
     align-items: center;
     width: 100%;
     min-height: 100vh;
+    padding: 24px;
 }
 
 .form {
-    width: 650px;
-    height: 450px;
-    padding: 14px;
+    width: min(100%, 650px);
+    min-height: 450px;
+    height: auto;
+    padding: 32px 24px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -46,6 +53,7 @@ html, body{
 
 .inputs{
     display: flex;
+    width: min(100%, 300px);
     flex-direction: column;
     gap: 25px;
     margin-bottom: 1rem;
@@ -53,6 +61,7 @@ html, body{
 
 .row{
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 6px;
 }
@@ -62,7 +71,7 @@ html, body{
     border: 1px solid black;
     font-size: 14px;
     height: 36px;
-    width: 300px;
+    width: 100%;
     padding: 10px;
     transition: .3s;
 }
@@ -93,7 +102,7 @@ html, body{
     border-radius: 4px;
     font-size: 20px;
     font-weight: 600;
-    width: 300px;
+    width: min(100%, 300px);
     cursor: pointer;
     padding: 5px;
     margin-bottom: 10px;
@@ -112,9 +121,9 @@ html, body{
 /* Tela principal pós-login */
 
 .home {
-    width: 750px;
-    min-height: 430px;
-    padding: 40px;
+    width: min(100%, 750px);
+    min-height: 0;
+    padding: 36px;
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -139,6 +148,7 @@ html, body{
 
 .home-conteudo {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
@@ -172,4 +182,40 @@ html, body{
 .btn-sair:hover {
     background-color: #E8EAE6;
     color: #050306;
+}
+
+@media (max-width: 700px) {
+    .container { padding: 20px; }
+    .form { min-height: 0; padding: 32px 24px; }
+    .home { gap: 34px; padding: 28px 24px; }
+    .home-topo { gap: 16px; }
+    .home-topo h1 { font-size: 28px; }
+    .home-conteudo { gap: 15px; }
+    .home-conteudo h2 { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 14px; }
+    .form { padding: 28px 20px; }
+    .inputs { gap: 18px; margin-bottom: 12px; }
+    .row label { font-size: 17px; }
+    .btn { min-height: 44px; font-size: 17px; }
+    .home { gap: 28px; padding: 24px 20px; }
+    .home-topo { flex-direction: column; }
+    .home-topo h1 { font-size: 25px; }
+    .home-conteudo h2 { font-size: 22px; }
+    .home-conteudo p { font-size: 13px; }
+    .btn-sair { min-height: 42px; }
+}
+
+@media (max-width: 340px) {
+    .container { padding: 10px; }
+    .form { padding: 24px 16px; }
+    .home { padding: 20px 16px; }
+    .log-txt { line-height: 1.5; }
+}
+
+@media (max-height: 560px) {
+    .container { align-items: flex-start; }
+    .form { min-height: 0; }
 }
