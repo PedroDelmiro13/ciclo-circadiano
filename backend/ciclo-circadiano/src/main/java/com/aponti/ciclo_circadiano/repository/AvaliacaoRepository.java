@@ -3,9 +3,12 @@ package com.aponti.ciclo_circadiano.repository;
 import com.aponti.ciclo_circadiano.model.AvaliacaoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 public interface AvaliacaoRepository extends JpaRepository<AvaliacaoModel, UUID> {
 	Optional<AvaliacaoModel> findFirstByUsuario_EmailOrderByDataAvaliacaoDesc(String email);
+
+	List<AvaliacaoModel> findByUsuario_EmailOrderByDataAvaliacaoDesc(String email);
 }
